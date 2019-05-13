@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录</title>
+<link rel="stylesheet" type="text/css" href="static/bootstrap-3.3.5-dist/css/bootstrap.css" />
+		<script src="static/js/jquery-1.12.3.min.js"></script>
+		<script src="static/layer-v3.1.1/layer/layer.js"></script>
+		<link href="static/css/index_style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+		<!-----HEADER STAR----->
+		<div class="header" id="demo">
+			<div class="nav">
+				<div class="form-login" id="index">
+					<div class="title">
+						<label class=" label" for="">软件工程</label><br/>
+					</div>
+					<form class="form-group">
+						<label class="label " for="">账号：</label>
+						<input class="form-control" type="text" name="userName" id="username"/>
+						<label for="" class="label">密码：</label>
+						<input class="form-control" type="text" name="userPassword" id="password"/>
+						<!-- <input type="submit" id="Loginbtn" value="登录" /> -->
+					</form>
+						<button id="Loginbtn">登录</button>
+						<a id="register" href="http://localhost:8080/ssm-crud/register">还没有账号？</a>
+				</div>
+			</div>
+
+			<div class="canvaszz"> </div>
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script src="static/js/userlogin_js.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+		 <script type="text/javascript">
+			$("#register").click(function() {
+			/* document.getElementById("index").innerHTML = '<object type="text/html" data="/Second_Project/login/adduser.html" width="100%" height="180%" ></object>';
+			$("#index").css("height","800px")
+			$(".nav").css("top","-14px")
+			$(".nav").css("width","1300px")
+			$(".nav").css("left","33%")
+			$(".objcet").css("overflow","hidden")
+			$("body").css("color","while") */
+			
+			
+		}); 
+			var path="http://localhost:8080/ssm-crud";
+			$("#Loginbtn").click(function(){
+				var username = $("#username").val();
+				var password = $("#password").val();
+				if (username=="") {
+					alert("用户名不能为空");
+					return false;
+				}
+				if (password=="") {
+					alert("密码不能为空");
+					return false;
+				}
+				$.ajax({
+					url:path+"/login",
+					type:"POST",
+					data:$("#index form").serialize(),
+					success:function(result){
+						if(result.code==200){
+							alert(result.extend.msg);
+					  	}else{
+					  		alert(result.extend.msg);
+					  		//jump();
+					  	  window.location.href =path+"/jump";
+						}
+					}
+				});
+				
+				/* function jump(){
+					$.ajax({
+						url:path+"/jump",
+						type:"GET",
+						success:function(result){}
+			  		});
+				} */
+			}); 
+</script> 
+</html>
+
+
+
+
+
+</body>
+</html>

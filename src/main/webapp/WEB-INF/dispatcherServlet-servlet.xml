@@ -14,10 +14,10 @@
 	</context:component-scan>
 	
 	<!-- 、配置视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
-		<property name="suffix" value=".jsp"></property>
-	</bean>
+		<property name="suffix" value=".html"></property>
+	</bean> 
 	
 	<!-- 、能支持springmvc更高级的功能 ，JSR303,ajax请求，映射动态请求-->
 	<mvc:annotation-driven></mvc:annotation-driven>

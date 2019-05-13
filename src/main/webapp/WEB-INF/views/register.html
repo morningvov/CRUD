@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户注册</title>
+		<link rel="stylesheet" type="text/css" href="http://localhost:8080/ssm-crud/static/bootstrap-3.3.5-dist/css/bootstrap.css" />
+		<script src="http://localhost:8080/ssm-crud/static/js/jquery-1.12.3.min.js"></script>
+		<script src="http://localhost:8080/ssm-crud/static/layer-v3.1.1/layer/layer.js"></script>
+		<link href="http://localhost:8080/ssm-crud/static/css/index_style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+		<!-----HEADER STAR----->
+		<div class="header" id="demo">
+			<div class="nav">
+				<div class="form-login" id="index">
+					<div class="title">
+						<label class=" label" for="">注册</label><br/>
+					</div>
+					<form class="form-group">
+						<label class="label " for="">账号：</label>
+						<input class="form-control" type="text" name="userName" id="username"/>
+						<label for="" class="label">密码：</label>
+						<input class="form-control" type="text" name="userPassword" id="password"/>
+						<!-- <input type="submit" id="Loginbtn" value="登录" /> -->
+					</form>
+						<button id="register">注册</button>
+						<a id="loginPage" href="http://localhost:8080/ssm-crud/">已有账号</a>
+				</div>
+			</div>
+
+			<div class="canvaszz"> </div>
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script src="static/js/userlogin_js.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var path="http://localhost:8080/ssm-crud";
+			$("#register").click(function(){
+				var username = $("#username").val();
+				var password = $("#password").val();
+				var regName=/(^[a-zA-Z0-9_-]{5,10}$)|(^[\u2E80-\u9FFF]{2,5}$)/;
+				if (!regName.test(username)) {
+					alert("用户名必须为5-10位的英文或数字的组合或者是2-5位的中文");
+					return false;
+				} 
+				if (password=="") {
+					alert("密码不能为空");
+					return false;
+				}
+				$.ajax({
+					url:path+"/add",
+					type:"POST",
+					data:$("#index form").serialize(),
+					success:function(result){
+						if(result.code==200){
+							alert(result.extend.errorField.userName);
+					  	}else{
+					  		alert(result.extend.msg);
+					  	  	window.location.href=path;
+						}
+					}
+				});
+			});
+		</script>
+</body>
+</html>

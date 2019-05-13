@@ -54,7 +54,6 @@ insert  into `tbl_emp`(`emp_id`,`emp_name`,`gender`,`email`,`d_id`) values
 (3,'6a4161',1,'6a4161@momo.com',2),
 (9,'9c48a7',1,'9c48a7@momo.com',2),
 (10,'567948',0,'567948@momo.com',1),
-(11,'71d679',1,'71d679@momo.com',2),
 (12,'b170510',0,'b170510@momo.com',1),
 (13,'892cf11',1,'892cf11@momo.com',2),
 (14,'c4e4012',0,'c4e4012@momo.com',1),
@@ -1048,6 +1047,25 @@ insert  into `tbl_emp`(`emp_id`,`emp_name`,`gender`,`email`,`d_id`) values
 (1005,'张三',0,'zhangsan@qq.com',1),
 (1006,'vgvvbb',0,'vvb@163.com',1),
 (1008,'小红',1,'xiaoming@momo.com',2);
+
+/*Table structure for table `tbl_login` */
+
+DROP TABLE IF EXISTS `tbl_login`;
+
+CREATE TABLE `tbl_login` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_login` */
+
+insert  into `tbl_login`(`user_id`,`user_name`,`user_password`) values 
+(1,'xiaoming','123456'),
+(2,'admin','admin'),
+(3,'xiaolin','666'),
+(4,'xiaodong','xiaodong');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
