@@ -36,7 +36,7 @@
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
-	    <version>2.9.8</version>
+	    <version>2.9.10.7</version>
 	</dependency>
 	
 	<!-- JSR303数据校验支持 注意：tomcat7以下的服务器中el不够强，需要换新标准的eljar包，或者用tomcat7及以上的 -->
